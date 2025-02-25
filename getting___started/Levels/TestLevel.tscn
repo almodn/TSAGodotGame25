@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=4 uid="uid://8nmw64l4wtfq"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://Tiles Slash Textures/new_tile_set.tres" id="1_hc3xt"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://Players/player_1.tscn" id="2_n58y5"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://Players/player_2.tscn" id="3_5baen"]
+[ext_resource type="PackedScene" uid="uid://dxw4wt6gwe470" path="res://Tiles Slash Textures/jump.tscn" id="4_ff01i"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="5_i7kpk"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAACAAoAAAA3AC0AAAADAAoAAAA3AC0AAAAEAAoAAAA3AC0AAAAFAAoAAAA3AC0AAAAGAAoAAAA3AC0AAAAIAAkAAAA3AC0AAAAJAAkAAAA3AC0AAAAKAAkAAAA3AC0AAAAOAAkAAAA3AC0AAAALAAkAAAA3AC0AAAAMAAkAAAA3AC0AAAANAAkAAAA3AC0AAAAPAAkAAAA3AC0AAAAQAAkAAAA3AC0AAAARAAkAAAA3AC0AAAARAAoAAAA3AC0AAAAQAAoAAAA3AC0AAAAPAAoAAAA3AC0AAAAOAAoAAAA3AC0AAAANAAoAAAA3AC0AAAAMAAoAAAA3AC0AAAALAAoAAAA3AC0AAAAKAAoAAAA3AC0AAAAJAAoAAAA3AC0AAAAIAAoAAAA3AC0AAAAHAAoAAAA3AC0AAAAHAAcAAAA3AC0AAAAHAAgAAAA3AC0AAAAIAAgAAAA3AC0AAAAIAAcAAAA3AC0AAAAIAAYAAAA3AC0AAAAGAAgAAAA3AC0AAAAJAAUAAAA3AC0AAAAJAAYAAAA3AC0AAAAJAAcAAAA3AC0AAAAJAAgAAAA3AC0AAAABAAkAAAA3AC0AAAAAAAkAAAA3AC0AAAD//wkAAAA3AC0AAAAAAAoAAAA3AC0AAAABAAoAAAA3AC0AAAD//woAAAA3AC0AAAACAAkAAAA3AC0AAAADAAkAAAA3AC0AAAAEAAkAAAA3AC0AAAAFAAkAAAA3AC0AAAAGAAkAAAA3AC0AAAAHAAkAAAA3AC0AAAA=")
+tile_set = ExtResource("1_hc3xt")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_n58y5")]
+position = Vector2(459, 270)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("3_5baen")]
+position = Vector2(166, 369)
+
+[node name="Area2D" parent="." instance=ExtResource("4_ff01i")]
+position = Vector2(659, 534)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("5_i7kpk")]
