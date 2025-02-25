@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce3b6x23e26ad"]
+[gd_scene load_steps=6 format=3 uid="uid://bei2nboanfyc8"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_4l3xa"]
-[ext_resource type="Texture2D" uid="uid://uhihrj87n6t8" path="res://chill_dude_idle.png" id="2_52wfr"]
-[ext_resource type="Texture2D" uid="uid://d3lja7bc1nu3x" path="res://chill_dude_walk.png" id="3_b777y"]
+[ext_resource type="Script" path="res://player_2.gd" id="1_roja2"]
+[ext_resource type="Texture2D" uid="uid://uhihrj87n6t8" path="res://chill_dude_idle.png" id="2_htluy"]
+[ext_resource type="Texture2D" uid="uid://d3lja7bc1nu3x" path="res://chill_dude_walk.png" id="3_slff8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu8p4"]
 size = Vector2(51, 59)
@@ -11,7 +11,7 @@ size = Vector2(51, 59)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_52wfr")
+"texture": ExtResource("2_htluy")
 }],
 "loop": false,
 "name": &"idle",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b777y")
+"texture": ExtResource("3_slff8")
 }],
 "loop": true,
 "name": &"jump",
@@ -27,10 +27,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 0.2,
-"texture": ExtResource("2_52wfr")
+"texture": ExtResource("2_htluy")
 }, {
 "duration": 0.2,
-"texture": ExtResource("3_b777y")
+"texture": ExtResource("3_slff8")
 }],
 "loop": true,
 "name": &"walk",
@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_4l3xa")
+script = ExtResource("1_roja2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
