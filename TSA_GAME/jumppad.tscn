@@ -1,0 +1,150 @@
+[gd_scene load_steps=21 format=3 uid="uid://dxw4wt6gwe470"]
+
+[ext_resource type="Script" path="res://jump.gd" id="1_1qosy"]
+[ext_resource type="Texture2D" uid="uid://blfjjbmwxbuf3" path="res://Tiles Slash Textures/spring pad.png" id="2_elfvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60j3y"]
+size = Vector2(55, 29.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52j2r"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(0, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cw4n"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(120, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnv1r"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(240, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl6id"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(360, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml8ey"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(480, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ry7j"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(600, 0, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djw7e"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(480, 140, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek7vt"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(600, 140, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c0bs"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(0, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6au4"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(120, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5yxt"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(240, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu4sb"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(360, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqph2"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(480, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbaut"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(600, 280, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ev4"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(0, 420, 120, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlshi"]
+atlas = ExtResource("2_elfvd")
+region = Rect2(120, 420, 120, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8j3is"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_52j2r")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_2cw4n")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_dnv1r")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_gl6id")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ml8ey")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_0ry7j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_djw7e")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ek7vt")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_5c0bs")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_m6au4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_l5yxt")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_gu4sb")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_sqph2")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_gbaut")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_t4ev4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_nlshi")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="Jump Pad" type="Area2D"]
+script = ExtResource("1_1qosy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_60j3y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(0.55, 0.637)
+sprite_frames = SubResource("SpriteFrames_8j3is")
+animation = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

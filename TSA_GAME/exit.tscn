@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://ducx2ckp28l4p"]
+
+[ext_resource type="Texture2D" uid="uid://d3rw5golwb1l1" path="res://Tiles Slash Textures/door.png" id="1_16eno"]
+[ext_resource type="Script" path="res://exit.gd" id="1_qfnw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10ryj"]
+size = Vector2(56, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcjcq"]
+atlas = ExtResource("1_16eno")
+region = Rect2(0, 0, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb0po"]
+atlas = ExtResource("1_16eno")
+region = Rect2(0, 120, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17g68"]
+atlas = ExtResource("1_16eno")
+region = Rect2(280, 120, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecu4r"]
+atlas = ExtResource("1_16eno")
+region = Rect2(0, 240, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15jw3"]
+atlas = ExtResource("1_16eno")
+region = Rect2(140, 240, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugyts"]
+atlas = ExtResource("1_16eno")
+region = Rect2(280, 240, 140, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84qpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcjcq")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb0po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17g68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecu4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15jw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugyts")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Exit" type="Area2D"]
+script = ExtResource("1_qfnw0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_10ryj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.407143, 0.441667)
+sprite_frames = SubResource("SpriteFrames_84qpw")
+animation = &"open"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
