@@ -62,6 +62,7 @@ animations = [{
 }]
 
 [node name="Exit" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_qfnw0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,4 +74,7 @@ scale = Vector2(0.407143, 0.441667)
 sprite_frames = SubResource("SpriteFrames_84qpw")
 animation = &"open"
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

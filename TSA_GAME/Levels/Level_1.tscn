@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://c51g5dj683fk5"]
+[gd_scene load_steps=9 format=4 uid="uid://c51g5dj683fk5"]
 
 [ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_y0iqc"]
 [ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_5jnlt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_l6ahs"]
 [ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="5_onuxm"]
 [ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_ytcv3"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="7_6qj43"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="8_lpvmy"]
 
 [node name="Main" type="Node2D"]
 
@@ -21,6 +23,11 @@ position = Vector2(159, 533)
 position = Vector2(100, 539)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("8_lpvmy")]
+anchors_preset = -1
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_l6ahs")]
 
@@ -39,5 +46,10 @@ anchor_right = 1151.0
 anchor_bottom = 640.0
 
 [node name="Exit" parent="." instance=ExtResource("5_onuxm")]
+z_index = -5
 position = Vector2(1058, 548)
 destination = "res://Levels/Level_1.tscn"
+
+[node name="Area2D" parent="." instance=ExtResource("7_6qj43")]
+z_index = -5
+position = Vector2(621, 546)

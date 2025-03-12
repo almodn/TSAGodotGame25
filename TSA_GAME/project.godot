@@ -17,10 +17,18 @@ boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://Tiles Slash Textures/pear.png"
 config/icon="res://Tiles Slash Textures/icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/size/viewport_height=640
 window/stretch/mode="viewport"
+
+[global_group]
+
+"Key collected"=""
 
 [input]
 
@@ -67,4 +75,5 @@ pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
