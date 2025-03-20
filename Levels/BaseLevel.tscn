@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=4 uid="uid://8nmw64l4wtfq"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_5w1co"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_bk577"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_k4kbb"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_vdjo8"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_ew4fn"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="7_0dawb"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="7_q2t3a"]
+[ext_resource type="PackedScene" uid="uid://hiviq516pdcm" path="res://pushable_box.tscn" id="7_sjaao"]
+[ext_resource type="PackedScene" uid="uid://dxw4wt6gwe470" path="res://jumppad.tscn" id="9_axyax"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAKAAkAAAA3AC0AAAAOAAkAAAA3AC0AAAALAAkAAAA3AC0AAAAMAAkAAAA3AC0AAAANAAkAAAA3AC0AAAAPAAkAAAA3AC0AAAAQAAkAAAA3AC0AAAARAAkAAAA3AC0AAAAAAAkAAAA3AC0AAAACAAkAAAA3AC0AAAADAAkAAAA3AC0AAAAEAAkAAAA3AC0AAAAFAAkAAAA3AC0AAAAGAAkAAAA3AC0AAAARAAgAAAA3AC0AAAARAAcAAAA3AC0AAAARAAYAAAA3AC0AAAARAAUAAAA3AC0AAAARAAQAAAA3AC0AAAARAAMAAAA3AC0AAAARAAIAAAA3AC0AAAARAAEAAAA3AC0AAAARAAAAAAA3AC0AAAAAAAgAAAA3AC0AAAAAAAcAAAA3AC0AAAAAAAYAAAA3AC0AAAAAAAUAAAA3AC0AAAAAAAMAAAA3AC0AAAAAAAIAAAA3AC0AAAAAAAEAAAA3AC0AAAABAAAAAAA3AC0AAAACAAAAAAA3AC0AAAADAAAAAAA3AC0AAAAEAAAAAAA3AC0AAAAFAAAAAAA3AC0AAAAGAAAAAAA3AC0AAAAHAAAAAAA3AC0AAAAIAAAAAAA3AC0AAAAJAAAAAAA3AC0AAAAKAAAAAAA3AC0AAAALAAAAAAA3AC0AAAAMAAAAAAA3AC0AAAANAAAAAAA3AC0AAAAOAAAAAAA3AC0AAAAPAAAAAAA3AC0AAAAQAAAAAAA3AC0AAAAAAAAAAAA3AC0AAAAJAAkAAAA3AC0AAAAHAAkAAAA3AC0AAAAIAAkAAAA3AC0AAAAAAAQAAAA3AC0AAAABAAQAAAA3AC0AAAABAAkAAAA3AC0AAAACAAQAAAA3AC0AAAADAAQAAAA3AC0AAAAEAAQAAAA3AC0AAAAFAAQAAAA3AC0AAAA=")
+tile_set = ExtResource("1_5w1co")
+
+[node name="P1" parent="." instance=ExtResource("2_bk577")]
+position = Vector2(97, 233)
+
+[node name="P2" parent="." instance=ExtResource("3_k4kbb")]
+position = Vector2(180, 223)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_vdjo8")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_ew4fn")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+
+[node name="BG" type="Sprite2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+visible = false
+anchors_preset = -1
+anchor_right = 1151.0
+anchor_bottom = 640.0
+
+[node name="Exit" parent="." instance=ExtResource("7_q2t3a")]
+position = Vector2(1055, 105)
+destination = "res://Levels/Level_1.tscn"
+
+[node name="Pushable Box" parent="." instance=ExtResource("7_sjaao")]
+position = Vector2(354, 204)
+collision_mask = 3
+
+[node name="Key" parent="." instance=ExtResource("7_0dawb")]
+position = Vector2(949, 106)
+
+[node name="Jump Pad" parent="." instance=ExtResource("9_axyax")]
+position = Vector2(416, 541)

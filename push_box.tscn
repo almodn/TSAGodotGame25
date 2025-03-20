@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4l25x2bfbb5q"]
+
+[ext_resource type="Texture2D" uid="uid://cfl0fuaxuv3oi" path="res://Tiles Slash Textures/icon.svg" id="2_b58kn"]
+
+[sub_resource type="GDScript" id="GDScript_wjxrl"]
+script/source = "extends CharacterBody2D
+ 
+
+const SPEED = 200.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+
+func _on_left_body_entered(body: Node2D) -> void:
+	velocity.x = SPEED
+
+
+func _on_right_body_entered(body: CharacterBody2D) -> void:
+	velocity.x = -SPEED
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c67mg"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3c86"]
+size = Vector2(46, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a30b3"]
+size = Vector2(46, 128)
+
+[node name="PushBox" type="CharacterBody2D"]
+script = SubResource("GDScript_wjxrl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b58kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c67mg")
+
+[node name="Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-77, 0)
+shape = SubResource("RectangleShape2D_c3c86")
+
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(77, 0)
+shape = SubResource("RectangleShape2D_a30b3")
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]

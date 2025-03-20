@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://docjrkcxaqlqk"]
+
+[ext_resource type="Script" path="res://level_label.gd" id="1_n3mlg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mnoum"]
+font_size = 38
+
+[node name="Level_Label" type="Control"]
+layout_mode = 3
+anchor_right = 0.115
+anchor_bottom = 0.075
+offset_right = 0.520004
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n3mlg")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.227
+anchor_bottom = 0.155
+offset_right = -0.504028
+offset_bottom = -0.199997
+text = "Level #"
+label_settings = SubResource("LabelSettings_mnoum")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
