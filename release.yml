@@ -94,7 +94,7 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          repository-name: TSA-Video-Game-24-25/game.github.io
+          repository-name: TSAGodotGame25/game.github.io
           ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           branch: main
           folder: build/web
@@ -174,12 +174,12 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           tag_name: ${{ env.VERSION }}
           files: |
             build/Windows.exe
             build/Linux.x86_64
             build/MacOS.zip
-          body: "Web build: [Github Pages](https://tsa-video-game-24-25.github.io/game.github.io/)"
+          body: "Web build: [Github Pages](https://TSAGodotGame25.github.io/game.github.io/)"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
