@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=4 uid="uid://4yo1qdgs7plv"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_8525h"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_xlqhf"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_7bqri"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_etm6j"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_1bjps"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="6_8fsqc"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="7_xqub4"]
+[ext_resource type="PackedScene" uid="uid://cs881d6fj24e" path="res://background.tscn" id="8_7emau"]
+[ext_resource type="PackedScene" uid="uid://d1vj2y8hgush3" path="res://button.tscn" id="9_xlqhf"]
+[ext_resource type="PackedScene" uid="uid://hiviq516pdcm" path="res://pushable_box.tscn" id="10_7bqri"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="11_etm6j"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAKAAkABAACAAAAAAAOAAkABAAEAAAAAAALAAkABAAEAAAAAAAMAAkABAACAAAAAAANAAkABAAEAAAAAAAPAAkABAAKAAAAAAAQAAkABAALAAAAAAARAAkABAAEAAAAAAAAAAkABAAAAAIAAAACAAkABAAAAAAAAAADAAkABAAAAAAAAAAEAAkABAAAAAIAAAAFAAkABAABAAIAAAAGAAkABAACAAAAAAARAAgABAALAAAAAAARAAcABAAHAAAAAAARAAYABAAFAAMAAAARAAUABAAAAAAAAAARAAQABAAAAAIAAAARAAMABAAAAAAAAAARAAIABAAAAAMAAAARAAEABAAAAAAAAAARAAAABAABAAIAAAAAAAcABAAEAAMAAAAAAAYABAAEAAAAAAAAAAUABAABAAMAAAAAAAMABAABAAMAAAAAAAIABAABAAIAAAAAAAEABAAAAAAAAAAAAAAABAAAAAIAAAAJAAkABAACAAAAAAAHAAkABAAIAAAAAAAIAAkABAAJAAAAAAAAAAQABAAAAAAAAAABAAkABAABAAIAAAAAAAgABAAIAAAAAAAIAAgABAALAAAAAAAHAAgABAAKAAAAAAAAAAoABAAAAAMAAAABAAoABAABAAMAAAAEAAoABAAAAAMAAAAFAAoABAABAAMAAAABAAgABAAJAAAAAAACAAgABAACAAAAAAAJAAgABAAIAAAAAAAKAAgABAAJAAAAAAAMAAgABAACAAAAAAALAAgABAAAAAAAAAANAAgABAAEAAAAAAAOAAgABAAKAAAAAAAPAAgABAALAAAAAAAQAAgABAAKAAAAAAABAAcABAAEAAAAAAAFAAcABAABAAIAAAAHAAcABAACAAAAAAAIAAcABAACAAAAAAALAAcABAAKAAAAAAAMAAcABAALAAAAAAAOAAcABAACAAAAAAANAAcABAACAAAAAAAPAAcABAAAAAAAAAAQAAcABAAGAAAAAAAQAAUABAAEAAIAAAAQAAYABAAEAAMAAAAOAAQABAAEAAAAAAASAAMABAABAAIAAAASAAQABAABAAIAAAASAAEABAABAAIAAAASAAIABAABAAMAAAAQAAAABAABAAMAAAAQAAEABAAAAAMAAAASAAUABAABAAMAAAAPAP//BAAAAAIAAAAPAAAABAAAAAAAAAAQAP//BAABAAIAAAD//wQABAAAAAIAAAD//wUABAAAAAMAAAD//wIABAAAAAIAAAD//wMABAAAAAMAAAABAAAABAAAAAMAAAABAAEABAABAAMAAAABAP//BAAAAAIAAAACAP//BAABAAIAAAACAAAABAAAAAAAAAALAAYABAAEAAAAAAAEAAcABAAAAAIAAAACAAcABAAEAAAAAAADAAcABAAEAAAAAAADAAgABAAIAAAAAAAEAAgABAAAAAMAAAAFAAgABAABAAMAAAAGAAgABAAEAAAAAAAGAAcABAACAAAAAAA=")
+tile_set = ExtResource("1_8525h")
+
+[node name="P1" parent="." instance=ExtResource("2_xlqhf")]
+position = Vector2(468, 402)
+
+[node name="P2" parent="." instance=ExtResource("3_7bqri")]
+position = Vector2(524, 406)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_etm6j")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_1bjps")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+level_number = "4"
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("6_8fsqc")]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 516.0
+offset_top = 137.0
+offset_right = 857.0
+offset_bottom = 160.0
+text = "some doors require physical authentication."
+
+[node name="Exit" parent="." instance=ExtResource("7_xqub4")]
+position = Vector2(928, 230)
+destination = "res://Levels/Level_5.tscn"
+ButtonHere = true
+
+[node name="Background" parent="." instance=ExtResource("8_7emau")]
+layer = -1
+
+[node name="Button" parent="." instance=ExtResource("9_xlqhf")]
+position = Vector2(640, 481)
+
+[node name="PushableBox" parent="." instance=ExtResource("10_7bqri")]
+position = Vector2(291, 416)
+
+[node name="Area2D" parent="." instance=ExtResource("11_etm6j")]
+position = Vector2(636, 188)

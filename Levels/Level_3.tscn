@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=4 uid="uid://c8mpkxra0ngcw"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_aig73"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_c0thm"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_fwchg"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_4t04n"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_knaiw"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="6_c0thm"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="6_vkhu4"]
+[ext_resource type="PackedScene" uid="uid://cs881d6fj24e" path="res://background.tscn" id="7_y58m1"]
+[ext_resource type="PackedScene" uid="uid://dxw4wt6gwe470" path="res://jumppad.tscn" id="9_fwchg"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="10_4t04n"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAKAAkABAAGAAAAAAAOAAkABAABAAMAAAALAAkABAAAAAIAAAAMAAkABAABAAIAAAANAAkABAAAAAMAAAAPAAkABAAGAAAAAAAQAAkABAAEAAMAAAARAAkABAAFAAMAAAAAAAkABAAEAAAAAAACAAkABAAFAAIAAAADAAkABAAKAAAAAAAEAAkABAALAAAAAAAFAAkABAAGAAAAAAAGAAkABAAHAAAAAAARAAgABAAFAAIAAAARAAcABAAEAAIAAAARAAYABAAEAAAAAAARAAUABAAEAAMAAAARAAQABAAEAAAAAAARAAMABAAEAAMAAAARAAIABAAEAAIAAAARAAEABAAFAAMAAAARAAAABAAFAAIAAAAAAAcABAAEAAIAAAAAAAYABAAEAAAAAAAAAAUABAABAAMAAAAAAAMABAAAAAAAAAAAAAIABAABAAMAAAAAAAEABAACAAAAAAABAAAABAACAAAAAAACAAAABAACAAAAAAADAAAABAACAAAAAAAEAAAABAAAAAMAAAAFAAAABAABAAMAAAAGAAAABAAGAAAAAAAHAAAABAAGAAAAAAAIAAAABAAHAAAAAAAJAAAABAAGAAAAAAAKAAAABAAHAAAAAAAAAAAABAACAAIAAAAJAAkABAAHAAAAAAAHAAkABAAAAAIAAAAIAAkABAABAAIAAAAAAAQABAABAAIAAAABAAkABAAEAAIAAAAAAAgABAAEAAMAAAAEAAYABAALAAAAAAAEAAcABAAEAAAAAAABAAcABAAFAAIAAAACAAgABAAEAAAAAAABAAgABAAFAAMAAAAQAAYABAABAAIAAAAPAAYABAAAAAIAAAAOAAYABAAHAAAAAAANAAYABAAGAAAAAAANAAcABAAAAAAAAAANAAgABAAAAAIAAAAQAAgABAAEAAIAAAAQAAcABAABAAMAAAAPAAcABAAAAAMAAAAOAAcABAAAAAIAAAAOAAgABAAGAAAAAAAPAAgABAAHAAAAAAADAAYABAAKAAAAAAABAAoABAAEAAMAAAACAAoABAAFAAMAAAALAAoABAAAAAMAAAAMAAoABAABAAMAAAAHAAoABAAAAAMAAAAIAAoABAABAAMAAAACAAEABAAAAAMAAAADAAEABAABAAMAAAADAP//BAAAAAIAAAAEAP//BAAAAAIAAAAFAP//BAABAAIAAAABAAEABAADAAMAAAAQAAAABAAFAAMAAAAQAAEABAAEAAMAAAAPAP//BAAEAAIAAAAPAAAABAAEAAMAAAAQAP//BAAFAAIAAAASAAIABAAFAAIAAAASAAMABAAFAAMAAAASAAQABAAFAAIAAAASAAUABAAFAAMAAAASAAcABAAFAAIAAAASAAgABAAFAAMAAAAHAAcABAAAAAAAAAAKAP7/BAAAAAAAAAAKAP//BAAAAAAAAAAJAP//BAAAAAAAAAAJAP7/BAAAAAAAAAAIAP7/BAAAAAAAAAAHAP7/BAAAAAAAAAAHAP//BAAAAAAAAAAGAP//BAAAAAAAAAAIAP//BAAAAAAAAAAGAP7/BAAAAAAAAAAJAAUABAACAAAAAAAKAAUABAACAAAAAAAQAP7/BAAEAAAAAAAPAP7/BAAEAAAAAAAPAP3/BAAEAAAAAAAQAP3/BAAEAAAAAAAOAP3/BAAEAAAAAAANAP3/BAAEAAAAAAAMAP3/BAAEAAAAAAALAP3/BAAEAAAAAAAKAP3/BAAEAAAAAAA=")
+tile_set = ExtResource("1_aig73")
+
+[node name="P1" parent="." instance=ExtResource("2_c0thm")]
+position = Vector2(352, 548)
+
+[node name="P2" parent="." instance=ExtResource("3_fwchg")]
+position = Vector2(803, 547)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_4t04n")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_knaiw")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+level_number = "3"
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("6_c0thm")]
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 615.0
+offset_top = 244.0
+offset_right = 725.0
+offset_bottom = 267.0
+text = "Need a boost?"
+
+[node name="Exit" parent="." instance=ExtResource("6_vkhu4")]
+position = Vector2(1057, 357)
+destination = "res://Levels/Level_4.tscn"
+
+[node name="Background" parent="." instance=ExtResource("7_y58m1")]
+layer = -1
+
+[node name="Jump Pad" parent="." instance=ExtResource("9_fwchg")]
+position = Vector2(671, 286)
+
+[node name="Area2D" parent="." instance=ExtResource("10_4t04n")]
+position = Vector2(932, 35)

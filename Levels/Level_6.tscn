@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=4 uid="uid://b7ogxuqfyv0pk"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_wo10n"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_ov3s6"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_ucxmn"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_mtwae"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_sdgm2"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="6_qemee"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="7_g4jo6"]
+[ext_resource type="PackedScene" uid="uid://cs881d6fj24e" path="res://background.tscn" id="8_bwjon"]
+[ext_resource type="PackedScene" uid="uid://6nuit54je70p" path="res://swap_block.tscn" id="9_ov3s6"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="9_ucxmn"]
+[ext_resource type="PackedScene" uid="uid://7j2p2srenpff" path="res://swap_toggle.tscn" id="10_ucxmn"]
+[ext_resource type="PackedScene" uid="uid://dxw4wt6gwe470" path="res://jumppad.tscn" id="12_sdgm2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAPAAkABAACAAAAAAAQAAkABAACAAMAAAARAAkABAADAAMAAAAAAAkABAACAAIAAAACAAkABAADAAIAAAADAAkABAACAAAAAAAEAAkABAAAAAAAAAAFAAkABAAGAAAAAAAGAAkABAAHAAAAAAARAAgABAADAAIAAAARAAcABAADAAMAAAARAAYABAADAAIAAAARAAUABAAAAAAAAAARAAQABAAAAAMAAAARAAMABAAEAAAAAAARAAIABAAAAAAAAAARAAEABAAAAAMAAAARAAAABAAAAAIAAAAAAAcABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAMABAAEAAAAAAAAAAIABAAKAAAAAAAAAAEABAAAAAAAAAAAAAAABAAAAAAAAAAJAAkABAAEAAAAAAAHAAkABAAKAAAAAAAIAAkABAALAAAAAAAAAAQABAAAAAAAAAABAAkABAACAAIAAAAAAAgABAAAAAAAAAAQAAgABAADAAMAAAAPAAgABAACAAMAAAAKAAkABAACAAAAAAALAAkABAAIAAAAAAAMAAkABAAJAAAAAAANAAkABAACAAIAAAAOAAkABAADAAIAAAAPAAcABAACAAIAAAAQAAcABAACAAMAAAAQAAYABAACAAIAAAAPAAYABAACAAAAAAAQAAMABAAEAAAAAAAPAAMABAAEAAAAAAAOAAMABAAEAAAAAAANAAMABAAEAAAAAAABAAAABAAAAAIAAAABAAEABAAAAAMAAAACAAEABAABAAMAAAACAAAABAABAAIAAAABAAIABAALAAAAAAADAAAABAACAAMAAAAEAAAABAADAAMAAAAFAAAABAACAAAAAAADAP//BAACAAIAAAAEAP//BAADAAIAAAANAAoABAACAAMAAAAOAAoABAADAAMAAAAAAAoABAACAAMAAAABAAoABAACAAMAAAACAAoABAADAAMAAAADAAcABAAGAAAAAAAEAAcABAAHAAAAAAA=")
+tile_set = ExtResource("1_wo10n")
+
+[node name="P1" parent="." instance=ExtResource("2_ov3s6")]
+position = Vector2(180, 546)
+
+[node name="P2" parent="." instance=ExtResource("3_ucxmn")]
+position = Vector2(111, 547)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_mtwae")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_sdgm2")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+level_number = "6"
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("6_qemee")]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 553.0
+offset_top = 377.0
+offset_right = 786.0
+offset_bottom = 426.0
+text = "Hit this switch from below to
+toggle the purple/cyan blocks."
+
+[node name="Exit" parent="." instance=ExtResource("7_g4jo6")]
+position = Vector2(1056, 166)
+destination = "res://Levels/Level_7.tscn"
+
+[node name="Background" parent="." instance=ExtResource("8_bwjon")]
+layer = -1
+
+[node name="Area2D" parent="." instance=ExtResource("9_ucxmn")]
+position = Vector2(1024, 317)
+
+[node name="SwapBlock" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(861, 479)
+Purple = true
+
+[node name="SwapBlock2" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(796, 543)
+Purple = true
+
+[node name="SwapBlock3" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(926, 417)
+Purple = true
+
+[node name="SwapToggle" parent="." instance=ExtResource("10_ucxmn")]
+position = Vector2(671, 473)
+
+[node name="Jump Pad" parent="." instance=ExtResource("12_sdgm2")]
+position = Vector2(224, 413)
+
+[node name="SwapBlock4" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(373, 291)
+
+[node name="SwapBlock5" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(499, 244)
+Purple = true
+
+[node name="SwapBlock6" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(625, 199)
+
+[node name="SwapBlock7" parent="." instance=ExtResource("9_ov3s6")]
+position = Vector2(743, 197)
+Purple = true

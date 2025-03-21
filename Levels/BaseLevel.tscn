@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=4 uid="uid://8nmw64l4wtfq"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_5w1co"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_bk577"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_k4kbb"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_vdjo8"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_ew4fn"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="6_rwpw5"]
+[ext_resource type="PackedScene" uid="uid://cs881d6fj24e" path="res://background.tscn" id="7_3bj1a"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="7_q2t3a"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAKAAkABAACAAAAAAAOAAkABAACAAAAAAALAAkABAACAAAAAAAMAAkABAACAAAAAAANAAkABAACAAAAAAAPAAkABAACAAAAAAAQAAkABAACAAAAAAARAAkABAAEAAAAAAAAAAkABAACAAAAAAACAAkABAACAAAAAAADAAkABAACAAAAAAAEAAkABAACAAAAAAAFAAkABAACAAAAAAAGAAkABAACAAAAAAARAAgABAAEAAAAAAARAAcABAAEAAAAAAARAAYABAAEAAAAAAARAAUABAAEAAAAAAARAAQABAAEAAAAAAARAAMABAAEAAAAAAARAAIABAAEAAAAAAARAAEABAAEAAAAAAARAAAABAAEAAAAAAAAAAcABAAAAAAAAAAAAAYABAAAAAAAAAAAAAUABAAAAAAAAAAAAAMABAAAAAAAAAAAAAIABAAAAAAAAAAAAAEABAAAAAAAAAABAAAABAACAAAAAAACAAAABAACAAAAAAADAAAABAACAAAAAAAEAAAABAACAAAAAAAFAAAABAACAAAAAAAGAAAABAACAAAAAAAHAAAABAACAAAAAAAIAAAABAACAAAAAAAJAAAABAACAAAAAAAKAAAABAACAAAAAAALAAAABAACAAAAAAAMAAAABAACAAAAAAANAAAABAACAAAAAAAOAAAABAACAAAAAAAPAAAABAACAAAAAAAQAAAABAACAAAAAAAAAAAABAACAAAAAAAJAAkABAACAAAAAAAHAAkABAACAAAAAAAIAAkABAACAAAAAAAAAAQABAAAAAAAAAABAAkABAACAAAAAAAAAAgABAAAAAAAAAA=")
+tile_set = ExtResource("1_5w1co")
+
+[node name="P1" parent="." instance=ExtResource("2_bk577")]
+position = Vector2(221, 482)
+
+[node name="P2" parent="." instance=ExtResource("3_k4kbb")]
+position = Vector2(100, 486)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_vdjo8")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_ew4fn")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("6_rwpw5")]
+
+[node name="Exit" parent="." instance=ExtResource("7_q2t3a")]
+position = Vector2(1032, 536)
+
+[node name="Background" parent="." instance=ExtResource("7_3bj1a")]
+layer = -1

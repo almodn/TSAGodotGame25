@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=4 uid="uid://cy71flr8b8jen"]
+
+[ext_resource type="TileSet" uid="uid://i7qmegtq6qs3" path="res://new_tile_set.tres" id="1_5myje"]
+[ext_resource type="PackedScene" uid="uid://ce3b6x23e26ad" path="res://player_1.tscn" id="2_aps4u"]
+[ext_resource type="PackedScene" uid="uid://bei2nboanfyc8" path="res://player_2.tscn" id="3_d2o1b"]
+[ext_resource type="PackedScene" uid="uid://brp443tcuuwe1" path="res://Menus/pause_menu.tscn" id="4_ymlwn"]
+[ext_resource type="PackedScene" uid="uid://docjrkcxaqlqk" path="res://level_label.tscn" id="5_rmgrl"]
+[ext_resource type="PackedScene" uid="uid://bpb88ocy5kilf" path="res://hud.tscn" id="6_ngdf5"]
+[ext_resource type="PackedScene" uid="uid://ducx2ckp28l4p" path="res://exit.tscn" id="7_0fykt"]
+[ext_resource type="PackedScene" uid="uid://cs881d6fj24e" path="res://background.tscn" id="8_kgivn"]
+[ext_resource type="PackedScene" uid="uid://bb34j7fnralum" path="res://Key.tscn" id="9_ymlwn"]
+[ext_resource type="PackedScene" uid="uid://hiviq516pdcm" path="res://pushable_box.tscn" id="10_rmgrl"]
+[ext_resource type="PackedScene" uid="uid://d1vj2y8hgush3" path="res://button.tscn" id="11_ngdf5"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAKAAkABAACAAMAAAAOAAkABAAAAAAAAAALAAkABAADAAMAAAAMAAkABAAAAAIAAAANAAkABAABAAIAAAAPAAkABAAAAAIAAAAQAAkABAABAAIAAAARAAkABAAEAAMAAAAAAAkABAALAAAAAAACAAkABAAEAAIAAAADAAkABAAKAAAAAAAEAAkABAALAAAAAAAFAAkABAAEAAAAAAAGAAkABAAKAAAAAAARAAgABAAEAAIAAAARAAcABAAAAAAAAAARAAYABAAAAAMAAAARAAUABAAAAAIAAAARAAQABAAAAAAAAAARAAMABAAAAAAAAAARAAIABAAAAAMAAAARAAEABAAAAAIAAAARAAAABAABAAIAAAAAAAcABAAAAAAAAAAAAAYABAABAAMAAAAAAAMABAABAAMAAAAAAAIABAABAAIAAAAAAAEABAAAAAAAAAAAAAAABAAAAAMAAAAJAAkABAAFAAIAAAAHAAkABAALAAAAAAAIAAkABAAEAAIAAAAAAAQABAAKAAAAAAABAAkABAAEAAAAAAAAAAgABAACAAAAAAABAAgABAAIAAAAAAACAAgABAAJAAAAAAADAAgABAACAAAAAAAEAAgABAACAAAAAAAFAAgABAAIAAAAAAAGAAgABAAJAAAAAAAHAAgABAACAAAAAAAIAAgABAAIAAAAAAAJAAgABAAJAAAAAAAKAAgABAACAAIAAAALAAgABAADAAIAAAAMAAgABAACAAAAAAABAAQABAALAAAAAAACAAQABAAEAAAAAAADAAQABAAEAAAAAAAFAAQABAAKAAAAAAAGAAQABAALAAAAAAAHAAQABAAAAAAAAAAEAAMABAAAAAAAAAADAAcABAAAAAAAAAAHAAcABAAEAAAAAAAAAAUABAABAAIAAAAAAP//BAAAAAIAAAABAP//BAABAAIAAAABAAAABAABAAMAAAAQAAAABAAAAAIAAAAQAAEABAAAAAMAAAASAAEABAABAAIAAAASAAIABAABAAMAAAAMAAoABAAAAAMAAAANAAoABAABAAMAAAAPAAoABAAAAAMAAAAQAAoABAABAAMAAAAIAAoABAAEAAMAAAAJAAoABAAFAAMAAAACAAoABAAEAAMAAAADAAoABAAFAAMAAAD//wkABAAKAAAAAAAQAAcABAAAAAAAAAAQAAgABAAAAAAAAAAGAAcABAAAAAAAAAAHAAYABAAAAAAAAAAGAAYABAAAAAAAAAAIAAcABAAAAAAAAAAJAAcABAAAAAAAAAAKAAYABAAAAAAAAAAKAAcABAAAAAAAAAAOAAYABAAAAAAAAAAOAAUABAAAAAAAAAAOAAQABAAAAAAAAAAPAAMABAAAAAMAAAAQAAMABAABAAMAAAAQAAIABAABAAIAAAAPAAIABAAAAAIAAAAOAAMABAAAAAAAAAASAAUABAABAAIAAAASAAYABAABAAMAAAA=")
+tile_set = ExtResource("1_5myje")
+
+[node name="P1" parent="." instance=ExtResource("2_aps4u")]
+position = Vector2(123, 476)
+
+[node name="P2" parent="." instance=ExtResource("3_d2o1b")]
+position = Vector2(159, 221)
+collision_layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("4_ymlwn")]
+
+[node name="Level_Label" parent="CanvasLayer" instance=ExtResource("5_rmgrl")]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 68.52
+offset_bottom = 68.0
+level_number = "5"
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("6_ngdf5")]
+
+[node name="Exit" parent="." instance=ExtResource("7_0fykt")]
+position = Vector2(1056, 422)
+destination = "res://Levels/Level_6.tscn"
+ButtonHere = true
+
+[node name="Background" parent="." instance=ExtResource("8_kgivn")]
+layer = -1
+
+[node name="Area2D" parent="." instance=ExtResource("9_ymlwn")]
+position = Vector2(288, 288)
+
+[node name="PushableBox" parent="." instance=ExtResource("10_rmgrl")]
+position = Vector2(263, 414)
+
+[node name="PushableBox2" parent="." instance=ExtResource("10_rmgrl")]
+position = Vector2(361, 218)
+
+[node name="Button" parent="." instance=ExtResource("11_ngdf5")]
+position = Vector2(576, 417)
