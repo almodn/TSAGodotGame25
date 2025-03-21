@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1vj2y8hgush3"]
+
+[ext_resource type="Script" uid="uid://bvwn1yh2vtxh" path="res://button.gd" id="1_n4tde"]
+[ext_resource type="Texture2D" uid="uid://bxqwftxw4dj4x" path="res://Tiles Slash Textures/button.png" id="1_r04n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxja4"]
+size = Vector2(70, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4tde"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(0, 0, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxja4"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(140, 0, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt4la"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(0, 120, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4amfo"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(140, 120, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kp8h"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(0, 240, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj86r"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(140, 240, 140, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7rpu"]
+atlas = ExtResource("1_r04n3")
+region = Rect2(0, 0, 140, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m64rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4tde")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_vxja4")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_lt4la")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_4amfo")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_2kp8h")
+}, {
+"duration": 0.25,
+"texture": SubResource("AtlasTexture_lj86r")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7rpu")
+}],
+"loop": false,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47axv"]
+size = Vector2(70, 11)
+
+[node name="Button" type="Area2D"]
+script = ExtResource("1_n4tde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_vxja4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.5, 0.51)
+sprite_frames = SubResource("SpriteFrames_m64rv")
+animation = &"pressed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_47axv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs881d6fj24e"]
+
+[ext_resource type="Script" uid="uid://c72ndhsy627py" path="res://background.gd" id="1_bpugw"]
+[ext_resource type="Texture2D" uid="uid://uq0qhtmlcp1o" path="res://Tiles Slash Textures/BGGradient.png" id="2_gjjrj"]
+[ext_resource type="Texture2D" uid="uid://b8p2k6opk1i6e" path="res://Tiles Slash Textures/BGStars.png" id="3_vvxqx"]
+[ext_resource type="Texture2D" uid="uid://c5vjvouq44gnl" path="res://Tiles Slash Textures/BGGreen.png" id="4_cdpnt"]
+[ext_resource type="Texture2D" uid="uid://bx4410v085ply" path="res://Tiles Slash Textures/BGBlue.png" id="5_8u6ia"]
+[ext_resource type="Texture2D" uid="uid://bm5pkqgtskwf0" path="res://Tiles Slash Textures/BGRed.png" id="6_6i7po"]
+[ext_resource type="Texture2D" uid="uid://onlbstnkqx73" path="res://Tiles Slash Textures/frontgr.png" id="7_gjjrj"]
+
+[node name="Background" type="CanvasLayer"]
+script = ExtResource("1_bpugw")
+
+[node name="Gradient" type="Sprite2D" parent="."]
+modulate = Color(0.561352, 0.53755, 0.506827, 1)
+position = Vector2(575.5, 320)
+scale = Vector2(0.0822143, 0.531667)
+texture = ExtResource("2_gjjrj")
+
+[node name="Stars" type="Sprite2D" parent="."]
+position = Vector2(-163, 362.5)
+scale = Vector2(0.354857, 0.610833)
+texture = ExtResource("3_vvxqx")
+
+[node name="Green" type="Sprite2D" parent="."]
+position = Vector2(-760.5, 486)
+scale = Vector2(0.273214, 0.263333)
+texture = ExtResource("4_cdpnt")
+
+[node name="Blue" type="Sprite2D" parent="."]
+position = Vector2(-762.5, 490.5)
+scale = Vector2(0.273071, 0.255833)
+texture = ExtResource("5_8u6ia")
+
+[node name="Red" type="Sprite2D" parent="."]
+position = Vector2(-760, 488)
+scale = Vector2(0.273286, 0.265)
+texture = ExtResource("6_6i7po")
+
+[node name="Front Gradient" type="Sprite2D" parent="."]
+position = Vector2(570, 561)
+scale = Vector2(6.13, 1.19)
+texture = ExtResource("7_gjjrj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 999999.0
+autostart = true
