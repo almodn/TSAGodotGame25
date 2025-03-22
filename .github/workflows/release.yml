@@ -94,7 +94,7 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          repository-name: TSAGodotGame25/game.github.io
+          repository-name: almodn/game.github.io
           ssh-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           branch: main
           folder: build/web
