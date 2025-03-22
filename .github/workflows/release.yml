@@ -174,7 +174,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ env.VERSION }}
           files: |
             build/Windows.exe
@@ -182,4 +182,4 @@ jobs:
             build/MacOS.zip
           body: "Web build: [Github Pages](https://TSAGodotGame25.github.io/game.github.io/)"
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
